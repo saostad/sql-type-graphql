@@ -15,6 +15,8 @@ It respects nullable and required fields.
 ## Config file options
 
 [sql-ts docs](https://github.com/rmp135/sql-ts#config)
+OR
+[Docs](https://saostad.github.io/sql-type-graphql/interfaces/config.html)
 
 ### Credits:
 
