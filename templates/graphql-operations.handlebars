@@ -1,0 +1,13 @@
+{{#*inline "graphqlTypePartial"}}
+@ObjectType()
+export class {{name}} {
+  {{log columns}}{{#each columns}}
+
+  @Field(()=> {{sqlTypeToGqlType type}}, { description: "DB Type {{type}}" {{#if nullable}}, nullable: true{{/if}} })
+  {{name}}{{#if nullable}}?{{/if}}: {{propertyType}}
+  {{/each}}
+}
+{{/inline}}
+import { Field, Int, Float, ObjectType } from "type-graphql";
+
+{{> graphqlTypePartial table}}

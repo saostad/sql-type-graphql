@@ -1,0 +1,83 @@
+{
+  "name": "sql-type-graphql",
+  "description": "A simple command line tool to generate Graphql Type-Graphql ts files and Types, Query and Mutations from SQL database schemas.",
+  "version": "0.0.1",
+  "main": "./dist/index.js",
+  "bin": "./bin/sql-type-graphql",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "url": "https://github.com/saostad/sql-type-graphql",
+    "type": "git"
+  },
+  "author": "Saeid Ostad",
+  "license": "MIT",
+  "scripts": {
+    "format": "prettier --check \"src/**/*.ts\" --write",
+    "lint": "eslint --ext \".ts,.js\" src --quiet",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "gen-docs": "typedoc src/index.ts",
+    "postgen-docs": "node ./config/github.js",
+    "tag": "node ./config/tag.js",
+    "auto-changelog": "auto-changelog --hide-credit --breaking-pattern \"breaking:\"",
+    "gen-changelog": "npm run auto-changelog && git add CHANGELOG.md && git commit -m \"doc: change log\"",
+    "tsc": "tsc",
+    "tsc:watch": "tsc --watch",
+    "vulnerability-scan": "node ./config/vulnerability-scan.js",
+    "prepublishOnly": "npm-run-all -s tsc vulnerability-scan gen-docs",
+    "postpublish": "npm-run-all -s tag gen-changelog",
+    "obfuscate": "javascript-obfuscator ./dist --output ./obfuscated --compact true --ignore-require-imports true",
+    "precompile": "npm-run-all -s tsc obfuscate",
+    "compile": "pkg ./obfuscated/index.js --out-path ./compile --options max_old_space_size=4096",
+    "predocker:build": "tsc",
+    "docker:build": "node ./config/docker-build.js",
+    "inspect": "node --inspect --unhandled-rejections=strict dist/index.js",
+    "dev:monitor": "set NODE_ENV=development&& nodemon --delay 2.5 --watch dist --exec \"npm run inspect\"",
+    "dev": "npm-run-all -p -c tsc:watch dev:monitor",
+    "start": "node ./config/clean-start.js && npm run dev",
+    "prod": "set NODE_ENV=production&& node --trace-warnings --unhandled-rejections=strict dist/index.js"
+  },
+  "keywords": [
+    "graphql",
+    "generator",
+    "CRUD",
+    "sql",
+    "schema"
+  ],
+  "nodemonConfig": {
+    "ignore": [
+      "test/*",
+      "docs/*"
+    ],
+    "delay": "1000"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.20",
+    "@types/node": "^14.14.22",
+    "@typescript-eslint/eslint-plugin": "^4.14.1",
+    "@typescript-eslint/parser": "^4.14.1",
+    "auto-changelog": "^2.2.1",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.19.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "javascript-obfuscator": "^2.10.3",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.7",
+    "npm-run-all": "^4.1.5",
+    "pkg": "^4.4.9",
+    "prettier": "^2.2.1",
+    "snyk": "^1.440.1",
+    "ts-jest": "^26.5.0",
+    "typedoc": "^0.20.20",
+    "typescript": "^4.1.3",
+    "yargs": "^16.2.0"
+  },
+  "dependencies": {
+    "@rmp135/sql-ts": "^1.7.0",
+    "mssql": "*",
+    "mysql": "*",
+    "pg": "*",
+    "sqlite3": "*"
+  }
+}
