@@ -61,7 +61,10 @@ try {
     );
     Handlebars.registerHelper(
       "sqlTypeToGqlType",
-      function (sqlType: string): string {
+      function (sqlType: string, isPrimaryKey: boolean): string {
+        if (isPrimaryKey) {
+          return "ID";
+        }
         switch (sqlType) {
           case "datetime":
           case "date":

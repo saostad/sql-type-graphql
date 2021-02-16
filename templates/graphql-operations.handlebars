@@ -3,8 +3,8 @@
 export class {{name}} {
   {{log columns}}{{#each columns}}
 
-  @Field(()=> {{sqlTypeToGqlType type}}, { description: "DB Type {{type}}" {{#if nullable}}, nullable: true{{/if}} })
-  {{name}}{{#if nullable}}?{{/if}}: {{propertyType}}
+  @Field(()=> {{sqlTypeToGqlType type isPrimaryKey}}, { description: "DB Type {{type}}" {{#if nullable}}, nullable: true{{/if}} })
+  {{name}}{{#if nullable}}?{{/if}}: {{#if isPrimaryKey}}string{{else}}{{propertyType}}{{/if}}
   {{/each}}
 }
 {{/inline}}
