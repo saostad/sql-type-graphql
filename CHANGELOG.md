@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v0.1.0](https://github.com/saostad/sql-type-graphql/compare/v0.0.2...v0.1.0)
+
+> 16 February 2021
+
+- feat: generate primary keys as ID field [`0136fb2`](https://github.com/saostad/sql-type-graphql/commit/0136fb259595001b9220538d25788ceb10ac0f28)
+- doc: change log [`f381adf`](https://github.com/saostad/sql-type-graphql/commit/f381adfda07f867dd8e16ca6c29804f3383190a4)
+
 #### [v0.0.2](https://github.com/saostad/sql-type-graphql/compare/v0.0.1...v0.0.2)
 
 > 31 January 2021
