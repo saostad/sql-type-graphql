@@ -1,7 +1,7 @@
 {
   "name": "sql-type-graphql",
   "description": "A simple command line tool to generate Graphql Type-Graphql ts files and Types, Query and Mutations from SQL database schemas.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "./dist/index.js",
   "bin": "./bin/sql-type-graphql",
   "types": "dist/index.d.ts",
