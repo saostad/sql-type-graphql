@@ -33,6 +33,7 @@ const defaultTemplatePath = path.join(
   "templates",
   "graphql-operations.handlebars",
 );
+
 if (typeof config.template !== "string") {
   config.template = defaultTemplatePath;
 }
@@ -47,6 +48,10 @@ try {
   }
 }
 
+const template: string = fs.readFileSync(config.template!, {
+  encoding: "utf-8",
+});
+
 (async () => {
   console.log(`Connecting to db...`);
   const decoratedDatabase = await toObject(config);
@@ -55,10 +60,6 @@ try {
 
   console.log(`Analyzing table's schema...`);
   const eachTable = tables.map((table) => {
-    const template: string = fs.readFileSync(
-      path.join(process.cwd(), config.template!),
-      { encoding: "utf-8" },
-    );
     Handlebars.registerHelper(
       "sqlTypeToGqlType",
       function (sqlType: string, isPrimaryKey: boolean): string {
