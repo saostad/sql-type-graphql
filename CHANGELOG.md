@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v0.1.4](https://github.com/saostad/sql-type-graphql/compare/v0.1.3...v0.1.4)
+
+> 17 February 2021
+
+- doc: change log [`7ce761b`](https://github.com/saostad/sql-type-graphql/commit/7ce761be347a725f69f071dc93b919102d859c1c)
+- fix: removed extra logs [`9207b8c`](https://github.com/saostad/sql-type-graphql/commit/9207b8c8cf311ec16a1b57362e9ac2f4883502dd)
+
 #### [v0.1.3](https://github.com/saostad/sql-type-graphql/compare/v0.1.2...v0.1.3)
 
 > 17 February 2021
