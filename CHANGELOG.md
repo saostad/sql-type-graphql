@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v0.1.3](https://github.com/saostad/sql-type-graphql/compare/v0.1.2...v0.1.3)
+
+> 17 February 2021
+
+- fix: break when running with npx [`31d52f1`](https://github.com/saostad/sql-type-graphql/commit/31d52f1b08c8e18abfbbcec70100dafbd821dbda)
+- doc: change log [`b292ab8`](https://github.com/saostad/sql-type-graphql/commit/b292ab8a8a973263d0f93d7c7a2444713e840788)
+
 #### [v0.1.2](https://github.com/saostad/sql-type-graphql/compare/v0.1.1...v0.1.2)
 
 > 17 February 2021
