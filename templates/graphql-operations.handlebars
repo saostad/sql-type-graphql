@@ -1,7 +1,7 @@
 {{#*inline "graphqlTypePartial"}}
 @ObjectType()
 export class {{name}} {
-  {{log columns}}{{#each columns}}
+  {{#each columns}}
 
   @Field(()=> {{sqlTypeToGqlType type isPrimaryKey}}, { description: "DB Type {{type}}" {{#if nullable}}, nullable: true{{/if}} })
   {{name}}{{#if nullable}}?{{/if}}: {{#if isPrimaryKey}}string{{else}}{{propertyType}}{{/if}}
